@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: data-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: data-service
+  template:
+    metadata:
+      labels:
+        app: data-service
+    spec:
+      containers:
+      - name: data-service
+        image: registry.cn-hangzhou.aliyuncs.com/chengzipi/k8s-mult-agent-explore
+        ports:
+        - containerPort: 80
